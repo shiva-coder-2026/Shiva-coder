@@ -1,0 +1,27 @@
+# Chemistry Lab Assistant
+total_volume = 0
+count = 0
+
+print("--- 🧪 Chemistry Lab: Titration Assistant ---")
+print("(Readings khatam hone par 'done' likhein)")
+
+while True:
+    reading = input(f"Reading {count + 1} ki value (ml) daalein: ")
+    
+    if reading.lower() == "done":
+        break
+        
+    # Number ko total mein jodna
+    total_volume = total_volume + float(reading)
+    count = count + 1 # Kitni readings li hain, uska hisaab
+
+# Calculation: Average = Total / Number of readings
+if count > 0:
+    average = total_volume / count
+    print("\n------------------------------")
+    print(f"Kul Readings: {count}")
+    print(f"Total Volume: {total_volume} ml")
+    print(f"Average Reading: {average:.2f} ml")
+    print("------------------------------")
+else:
+    print("Koi reading nahi daali gayi.")
