@@ -26,9 +26,6 @@ Maine apne syllabus ke tough concepts ko asaan banane ke liye ye tools banaye ha
 - 🌱 Goal: Agle semester tak ek full-stack web application banana.
 - 💬 Mujhse **Python** ya **B.Tech Syllabus** ke baare mein baat karein!
 
----
 
-### 📫 Connect with me:
-[LinkedIn Profile Link yahan daalein] | [Email ID yahan daalein]
 
 *"Code is like humor. When you have to explain it, it’s bad."*
