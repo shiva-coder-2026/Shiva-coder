@@ -1,0 +1,57 @@
+# 🎸 Smart Guitar Learning Assistant
+
+def show_menu():
+    print("\n--- 🎸 Guitar Learning Assistant ---")
+    print("1. Learn Chord")
+    print("2. Show All Chords")
+    print("3. Suggest Songs")
+    print("4. Exit")
+
+def guitar_app():
+    chords = {
+        "G": ("3 2 0 0 0 3", "Used in many Bollywood songs"),
+        "C": ("x 3 2 0 1 0", "Soft and emotional chord"),
+        "D": ("x x 0 2 3 2", "Bright and happy tone"),
+        "AM": ("x 0 2 2 1 0", "Sad vibe chord"),
+        "EM": ("0 2 2 0 0 0", "Easiest chord")
+    }
+
+    songs = {
+        "G C D": "Perfect – Ed Sheeran",
+        "C G Am F": "Let It Be – Beatles",
+        "Am G F": "Tum Hi Ho – Bollywood"
+    }
+
+    while True:
+        show_menu()
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            chord = input("Enter chord (G, C, D, Am, Em): ").strip().upper()
+            
+            if chord in chords:
+                print(f"\n🎸 {chord} CHORD")
+                print("Strings: E A D G B e")
+                print("Frets :", chords[chord][0])
+                print("Tip:", chords[chord][1])
+            else:
+                print("❌ Chord not found!")
+
+        elif choice == '2':
+            print("\nAvailable Chords:")
+            for c in chords:
+                print("👉", c)
+
+        elif choice == '3':
+            print("\n🎵 Song Suggestions:")
+            for pattern, song in songs.items():
+                print(f"{pattern} → {song}")
+
+        elif choice == '4':
+            print("🎵 Keep practicing! Bye!")
+            break
+
+        else:
+            print("Invalid choice!")
+
+guitar_app()
