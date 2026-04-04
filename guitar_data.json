@@ -1,0 +1,47 @@
+import json
+import os
+
+# File ka naam jahan data save hoga
+DATA_FILE = "guitar_data.json"
+
+def load_data():
+    """File se data load karne ke liye"""
+    if os.path.exists(DATA_FILE):
+        with open(DATA_FILE, "r") as f:
+            return json.load(f)
+    # Agar file nahi hai, toh default chords return karo
+    return {"G": "3 2 0 0 0 3", "C": "x 3 2 0 1 0", "Am": "x 0 2 2 1 0"}
+
+def save_data(data):
+    """Data ko file mein permanent save karne ke liye"""
+    with open(DATA_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+def shiva_guitar_v3():
+    chords = load_data()
+    
+    print("--- 🎸 Shiva's Persistent Guitar Lab ---")
+    print("1. View Chords")
+    print("2. Add New Chord")
+    print("3. Exit")
+    
+    while True:
+        choice = input("\nSelect (1/2/3): ")
+        
+        if choice == '1':
+            print("\nYour Saved Chords:")
+            for chord, fret in chords.items():
+                print(f"👉 {chord}: {fret}")
+                
+        elif choice == '2':
+            name = input("Enter Chord Name: ").strip()
+            fret = input("Enter Fret Positions (e.g. 1 3 3 2 1 1): ").strip()
+            chords[name] = fret
+            save_data(chords) # Turant save kar do!
+            print(f"✅ {name} saved permanently!")
+            
+        elif choice == '3':
+            print("Keep practicing! Chords are safe in your JSON file.")
+            break
+
+shiva_guitar_v3()
