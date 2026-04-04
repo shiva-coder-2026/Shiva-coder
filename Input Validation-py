@@ -1,0 +1,22 @@
+def validated_chord_add(chords):
+    name = input("\nNew Chord Name: ").strip().capitalize()
+    
+    # Validation 1: Check if name is empty
+    if not name:
+        print("⚠️ Error: Chord ka naam khali nahi ho sakta!")
+        return
+        
+    # Validation 2: Check if chord already exists
+    if name in chords:
+        confirm = input(f"🤔 {name} pehle se hai. Update karein? (y/n): ")
+        if confirm.lower() != 'y': return
+
+    fret = input("Fret Positions: ").strip()
+    
+    # Validation 3: Basic format check
+    if len(fret) < 5: # e.g., "0 2 2 0 0 0" is 11 chars
+        print("⚠️ Warning: Fret positions thodi short lag rahi hain, check kar lo!")
+
+    chords[name] = fret
+    save_data(chords)
+    print(f"✅ {name} Successfully Secured!")
