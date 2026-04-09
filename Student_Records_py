@@ -1,0 +1,63 @@
+students = {}
+
+while True:
+    print("\n--- Student Menu ---")
+    print("1. Add Student")
+    print("2. View Students")
+    print("3. Find Topper")
+    print("4. Average Marks")
+    print("5. Search Student")
+    print("6. Delete Student")
+    print("7. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == '1':
+        name = input("Enter student name: ")
+        marks = int(input("Enter marks: "))
+        students[name] = marks
+        print("Student added successfully!")
+
+    elif choice == '2':
+        if not students:
+            print("No records found.")
+        else:
+            print("\nStudent Records:")
+            for name, marks in students.items():
+                print(name, ":", marks)
+
+    elif choice == '3':
+        if not students:
+            print("No data available.")
+        else:
+            topper = max(students, key=students.get)
+            print("Topper is:", topper, "with marks", students[topper])
+
+    elif choice == '4':
+        if not students:
+            print("No data available.")
+        else:
+            avg = sum(students.values()) / len(students)
+            print("Average marks:", avg)
+
+    elif choice == '5':
+        name = input("Enter name to search: ")
+        if name in students:
+            print(name, "marks:", students[name])
+        else:
+            print("Student not found!")
+
+    elif choice == '6':
+        name = input("Enter name to delete: ")
+        if name in students:
+            del students[name]
+            print("Student deleted!")
+        else:
+            print("Student not found!")
+
+    elif choice == '7':
+        print("Exiting program...")
+        break
+
+    else:
+        print("Invalid choice!")
